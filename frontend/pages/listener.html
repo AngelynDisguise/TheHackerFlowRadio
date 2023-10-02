@@ -1,6 +1,46 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <link href="../common-styles.css" rel="stylesheet" type="text/css">
+        <link href="../styles/listener.css" rel="stylesheet" type="text/css">
+    </head>
     <body>
-        Listener
+        <div class="navbar">
+            <button type="button"> <a href="../common-index.html">Home</a></button>
+        </div>
+        <div class="listener-body-wrapper">
+            <div class="listener-title">
+                <h1>Listener</h1>
+            </div>
+            <div class="listener-sub-body-wrapper">
+                <div class="listener-preference-box">
+                    <div class="listener-preference-body">
+                        <h2>Preferences</h2>
+                        <h3>Select your Genre:</h3>
+                        <div class="listener-genre">
+                            <!-- Alert an error if none selected -->                            
+                            <button type="button">Electronic</button>
+                            <button type="button">Lo-Fi</button>
+                            <button type="button">Ambient</button>
+                            <button type="button">Classical</button>
+                        </div>
+                        <div class="listener-dj">
+                            <select id="DJ" name="DJ">
+                                <!-- Alert an error if none selected -->
+                                <option value="none" selected disabled hidden>Select your DJ</option> 
+                                <option value="DJ 1">DJ 1</option>
+                                <option value="DJ 2">DJ 2</option>
+                                <option value="DJ 3">DJ 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="song-box">
+                    <div class="song-body">
+                        Upcoming Songs
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
