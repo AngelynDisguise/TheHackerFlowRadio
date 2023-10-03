@@ -41,8 +41,11 @@ body {
 .listener-song-body {
     margin-left: 50px;
     /* height: 400px; */
-    width: 500px;
-    padding: 
+    width: 600px;
+}
+
+.listener-song-body h2 {
+    margin-bottom: 10px;
 }
 
 table {
@@ -56,3 +59,13 @@ th {
     padding: 10px 20px;
 }
 
+.listener-song-checkbox {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+    width: 90%;
+}
+
+.form-control {
+    padding-right: 25px;
+}
