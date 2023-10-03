@@ -2,6 +2,11 @@ body {
     padding: 50px;
 }
 
+.common-title {
+    display: flex;
+    justify-content: center;
+}
+
 .listener-body-wrapper {
     display: flex;
     flex-direction: column;
