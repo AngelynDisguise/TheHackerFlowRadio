@@ -1,6 +1,4 @@
 body {
-    display: flex;
-    justify-content: space-around;
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
@@ -19,7 +17,7 @@ body {
 .body-wrapper {
     margin: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     place-items: center;
     min-width: 320px;
