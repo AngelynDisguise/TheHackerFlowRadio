@@ -17,7 +17,7 @@ body {
 .body-wrapper {
     margin: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     place-items: center;
     min-width: 320px;
@@ -33,9 +33,13 @@ body {
     color: #535bf2;
   }
 
-  .title h1 {
+  h1 {
     font-size: 3.2em;
     line-height: 1.1;
+  }
+
+  .title h1 {
+    margin-bottom: 5px;
   }
 
   button,
@@ -103,3 +107,71 @@ body {
       transform: scale(1);
       animation: pulse-animation .5s infinite;
   }
+
+.binary-left,
+.binary-right {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.binary-left .binary-stream1,
+.binary-right .binary-stream1,
+.binary-left .binary-stream2,
+.binary-right .binary-stream2 {
+    font-size: 24px;
+    color: #00ff00; /* Change the color to your preference */
+    white-space: nowrap;
+}
+
+.binary-left .binary-stream1,
+.binary-right .binary-stream1 {
+  animation: animateBinary1 5s linear infinite;
+}
+
+.binary-left .binary-stream2,
+.binary-right .binary-stream2 {
+  animation: animateBinary2 5s linear infinite;
+}
+
+@keyframes animateBinary1 {
+    0% {
+        /* transform: translateY(0); */
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.5;
+    }
+    50% {
+      opacity: 0;
+    }
+    75% {
+      opacity: 0.5;
+    }
+    100% {
+      /* transform: translateY(calc(100vh - 1em));  */
+      opacity: 1;
+    }
+}
+
+@keyframes animateBinary2 {
+  0% {
+      transform: translateY(0);
+      opacity: 0.5;
+  }
+  25% {
+      opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    /* transform: translateY(calc(100vh - 1em));  */
+    opacity: 0.5;
+  }
+}
