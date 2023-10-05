@@ -32,8 +32,8 @@ body{
     }
 
     select {
-        background-color: #ffffff !important;
-        width: 500px !important;
+        background-color: #ffffff;
+        width: 500px
     }
 
 .dj-song-body {
@@ -63,4 +63,39 @@ td:nth-child(1) {
     width: 400px;
   }
 
+.divider{
+    width:275px;
+    height:auto;
+    display:inline-block;
+}
 
+.search-filter{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    margin: 10px;
+    align-items: center;
+}
+
+.search
+{
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    }
+
+    input{
+        width: 200px;
+        font-size: 20px;
+        display: block;
+    }
+
+.dropdown-media { 
+    display: flex; 
+    position: relative;
+    } 
+
+.dropdown-media select {
+    background-color: #ffffff;
+    width: 200px;
+}
