@@ -1,38 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Insert Title Here</title>
-      <link rel="stylesheet" href="../../styles/producer.css">
-   </head>
-   <body>
 
-      <img class="logo" src="../../assets/headphones.png" alt="headphones" style="position: absolute; top: 0; left: 0; width: 64px; height: 64px;"/>
-      <div class="home-wrapper" style="text-align: center; margin-top: 0;">
-         <div class="title">
-            <h2>The HackerFlow Radio</h2>
-         </div>
-         <div class="navbar">
-            <button type="button"> <a href="../listener.html">Listener</a></button>
-            <button type="button"> <a href="../DJ.html">DJ</a></button>
-            <button type="button"> <a href="index.html">Producer</a></button>
-            <button type="button"> <a href="../../index.html">Home</a></button>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Create</title>
+   <link rel="stylesheet" href="../../styles/producer.css">
+</head>
+
+<body>
+
+   <img class="logo" src="../../assets/headphones.png" alt="headphones"
+      style="position: absolute; top: 0; left: 0; width: 64px; height: 64px;" />
+   <div class="home-wrapper" style="text-align: center; margin-top: 0;">
+      <div class="title">
+         <h2>The HackerFlow Radio</h2>
+      </div>
+      <div class="navbar">
+         <button type="button"> <a href="../listener.html">Listener</a></button>
+         <button type="button"> <a href="../DJ.html">DJ</a></button>
+         <button type="button"> <a href="index.html">Producer</a></button>
+         <button type="button"> <a href="../../index.html">Home</a></button>
+      </div>
+   </div>
+
+   <!-- Main content -->
+   <div class="home-wrapper" style="text-align: center; padding: 40px; justify-content: center; align-items: center;">
+      <div class="home-wrapper" style="padding: 40px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; align-items: center;">
+         <div class="active-page-wrapper">
+            <h3 style="text-align: left;">Producer: Song Selection & Time Slot Assignment</h3>
+            <form action="#" method="post" style="width: 100%;">
+               <!-- Song Selection -->
+               <div class="song-selection"
+                  style="display: flex; flex-direction: column; align-items: flex-start; width: 100%;">
+                  <label for="song-search" style="margin-right: 10px;">Search for songs:</label>
+                  <div style="display: flex; align-items: center; width: 100%;">
+                     <input type="text" id="song-search" name="song-search" placeholder="Enter song name..."
+                        style="flex: 1;">
+                     <button type="submit" style="margin-left: 10px;">Search</button>
+                  </div>
+                  <ul id="song-list" style="width: 100%; max-height: 200px; overflow-y: auto; list-style-type: none; text-align: left;">
+                  </ul>
+               </div>
+
+               <!-- DJ and Time Slot Assignment -->
+               <div class="dj-time-slot"
+                  style="display: flex; flex-direction: column; align-items: flex-start; margin-top: 20px; width: 100%;">
+                  <label for="dj-select" style="margin-right: 10px;">Select DJ:</label>
+                  <select id="dj-select" name="dj-select" style="margin-bottom: 10px; width: 100%;">
+                     <!-- Example DJ Options -->
+                     <!-- <option value="dj1">DJ Name 1</option> -->
+                     <!-- <option value="dj2">DJ Name 2</option> -->
+                  </select>
+                  <label for="time-slot" style="margin-right: 10px;">Assign Time Slot:</label>
+                  <select id="time-slot" name="time-slot" style="width: 100%;"></select>
+               </div>
+               <button type="submit" style="margin-top: 20px;">Assign Songs to DJ</button>
+            </form>
          </div>
       </div>
+   </div>
+   <script src="../../scripts/producer/create.js"></script>
+</body>
 
-      <!-- Main content -->
-      <div class="home-wrapper" style="text-align: center; padding: 40px;">
-         <!-- Title Section -->
-         <div class="title">
-            <h2>Insert Name Here</h2>
-            <p>Insert Introduction or Tagline Here</p>
-         </div>
-
-         <!-- Placeholder for Tracks or Call to Action Button -->
-         <div style="margin-top: 20px;">
-            Insert Tracks or Button Here
-         </div>
-      </div>
-   </body>
 </html>
