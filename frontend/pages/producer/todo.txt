@@ -1,0 +1,24 @@
+Producer Profile:
+
+    Song Selection: X
+        Search for songs.
+        Assign specific songs to DJs.
+
+    Time Slot Assignment: X
+        Choose a DJ.
+        Allocate a specific time slot to that DJ.
+
+    Playlist Management: X
+        Add songs to a DJ's playlist.
+        Delete songs from a DJ's playlist.
+
+    Theme or Event Management: X
+        Decide on special themes or events (e.g., "Retro Night").
+        Curate content and songs based on the chosen theme.
+
+    Interaction with DJs:
+        Set initial playlist for DJs.
+        Note: DJs can modify this playlist during their shift.
+
+    Review with Managers:
+        Understand discrepancies between assigned songs and actual played songs (managed by Managers).
