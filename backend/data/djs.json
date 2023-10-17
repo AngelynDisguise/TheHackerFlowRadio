@@ -1,50 +1,50 @@
 [
     {
         "djID":1,
-        "name":"The DJ One"
+        "name":"One"
     },
     {
         "djID":2,
-        "name":"The DJ Two"
+        "name":"Two"
     },
     {
         "djID": 3,
-        "name": "DJ Nightwave"
+        "name": "Nightwave"
     },
     {
         "djID": 4,
-        "name": "DJ Thunder"
+        "name": "Thunder"
     },
     {
         "djID": 5,
-        "name": "DJ Luna"
+        "name": "Luna"
     },
     {
         "djID": 6,
-        "name": "DJ Solar Flare"
+        "name": "Solar Flare"
     },
     {
         "djID": 7,
-        "name": "DJ Echo"
+        "name": "Echo"
     },
     {
         "djID": 8,
-        "name": "DJ Quantum"
+        "name": "Quantum"
     },
     {
         "djID": 9,
-        "name": "DJ Nebula"
+        "name": "Nebula"
     },
     {
         "djID": 10,
-        "name": "DJ Aurora"
+        "name": "Aurora"
     },
     {
         "djID": 11,
-        "name": "DJ Vortex"
+        "name": "Vortex"
     },
     {
         "djID": 12,
-        "name": "DJ Starlight"
+        "name": "Starlight"
     }
 ]

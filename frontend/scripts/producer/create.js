@@ -81,9 +81,15 @@ function displaySongs(matchedSongs) {
 document.querySelector('form').addEventListener('submit', function(event) {
   event.preventDefault();
   const selectedSongs = document.querySelectorAll('input[name="selected-songs"]:checked');
-  const dj = document.getElementById('dj-select').value;
+  const selectedDjId = document.getElementById('dj-select').value;
+  // Find the selected DJ based on the djID
+  const selectedDj = djs.find(dj => dj.djID == selectedDjId); // == is used since dropdown value is string and djID is number
   const timeSlot = document.getElementById('time-slot').value;
-
-  // Implement your logic to assign the songs to the DJ for the chosen time slot here
-  console.log(`Selected songs for DJ ${dj} at time slot ${timeSlot}:`, Array.from(selectedSongs).map(input => input.value));
+  // Use selectedDj.name instead of djID
+  const message = `Selected songs for DJ ${selectedDj.name} at time slot ${timeSlot}: ${Array.from(selectedSongs).map(input => input.value).join(', ')}`;
+  // Display the message on the webpage
+  document.getElementById('message').innerText = message;
+  // If you still want to log it to the console, you can do that too:
+  console.log(message);
 });
+
