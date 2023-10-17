@@ -44,10 +44,12 @@ document.getElementById('add-song-btn').addEventListener('click', function () {
 });
 
 document.getElementById('add-song-to-dj').addEventListener('input', function (event) {
+    event.target.value = event.target.value.replace(/[^a-zA-Z]/g, '');
     searchAndDisplaySongs(event, 'add-dj-song-list');
 });
 
 document.getElementById('theme-song-input').addEventListener('input', function (event) {
+    event.target.value = event.target.value.replace(/[^a-zA-Z]/g, '');
     searchAndDisplaySongs(event, 'add-theme-song-list');
 });
 
@@ -63,9 +65,39 @@ function displaySongs(matchedSongs, elementID) {
 
     matchedSongs.forEach(song => {
         const li = document.createElement('li');
-        li.innerText = song.title;
+        const input = document.createElement('input');
+        const label = document.createElement('label');
+
+        input.type = 'checkbox';
+        input.id = `song${song.songID}`;
+        input.name = 'selected-songs';
+        input.value = song.songID; // Using songID here since it is unique
+
+        label.htmlFor = input.id;
+        label.innerText = song.title;
+
+        li.appendChild(input);
+        li.appendChild(label);
         songList.appendChild(li);
     });
 }
+
+document.getElementById('add-song-btn').addEventListener('click', function () {
+    const selectedSongs = document.querySelectorAll('#add-dj-song-list input[name="selected-songs"]:checked');
+    const selectedDJID = document.getElementById('dj-playlist-select').value;
+    
+    selectedSongs.forEach(input => {
+        const songID = parseInt(input.value);
+        const song = songs.find(s => s.songID === songID);
+        
+        if (song) {
+            const dj = djs.find(dj => dj.djID === parseInt(selectedDJID));
+            if (dj && !dj.playlist.includes(song.songID)) {
+                dj.playlist.push(song.songID);
+                console.log(`${song.title} added to ${dj.name}'s playlist.`);
+            }
+        }
+    });
+});
 
 

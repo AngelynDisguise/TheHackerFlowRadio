@@ -40,7 +40,7 @@
             <div style="display: flex; flex-direction: column; align-items: start; width: 100%;">
                <div style="display: flex; align-items: center; width: 100%;">
                   <input type="text" id="add-song-to-dj" placeholder="Enter song name..." style="flex: 1;">
-                  <button id="add-song-btn">Add</button>
+                  <button id="add-song-btn" type="submit" style="margin-top: 20px;" onclick="console.log('added')">Add</button>
                </div>
                <ul id="add-dj-song-list"
                   style="width: 100%; max-height: 100px; overflow-y: auto; list-style-type: none; text-align: left;">
@@ -56,7 +56,7 @@
             <div style="display: flex; flex-direction: column; align-items: start; width: 100%;">
                <div style="display: flex; align-items: center; width: 100%;">
                   <input type="text" id="theme-song-input" placeholder="Enter song name..." style="flex: 1;">
-                  <button id="add-song-to-theme-btn">Add</button>
+                  <button id="add-song-to-theme-btn" type="submit" style="margin-top: 20px;" onclick="console.log('added')">Add</button>
                </div>
                <ul id="add-theme-song-list"
                   style="width: 100%; max-height: 100px; overflow-y: auto; list-style-type: none; text-align: left;">
@@ -66,7 +66,7 @@
          <div style="padding: 10px;">
             <h4 style="margin-top: 0;">Content and Songs for Theme/Event:</h4>
             <input type="text" id="theme-song-input" placeholder="Enter song name...">
-            <button id="add-song-to-theme-btn">Add</button>
+            <button id="add-song-to-theme-btn" type="submit" style="margin-top: 20px;" onclick="console.log('added')">Add</button>
          </div>
          <div style="padding: 10px;">
             <ul id="theme-songs-list"></ul>

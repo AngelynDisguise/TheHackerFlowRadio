@@ -47,6 +47,7 @@ function populateDJs() {
 
 // Search songs
 document.getElementById('song-search').addEventListener('input', function(event) {
+  event.target.value = event.target.value.replace(/[^a-zA-Z]/g, '');
   const searchTerm = event.target.value.toLowerCase();
   const matchedSongs = songs.filter(song => song.title.toLowerCase().includes(searchTerm));
   displaySongs(matchedSongs);
