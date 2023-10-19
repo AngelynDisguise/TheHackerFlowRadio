@@ -10,16 +10,28 @@
             <h2>The HackerFlow Radio</h2>
         </div>
         <div class="navbar">
-            <button type="button"> <a href="../pages/listener.html">Listener</a></button>
-                <button type="button"> <a href="../pages/producer.html">Producer</a></button>
-                <button type="button"> <a href="../pages/DJ.html">DJ</a></button>
-                <button type="button"> <a href="../index.html">Home</a></button>
+            <button type="button" onclick="alert('Already logging in!')">Listener</button>                
+            <button type="button"> <a href="../pages/producer.html">Producer</a></button>
+            <button type="button"> <a href="../pages/DJ.html">DJ</a></button>
+            <button type="button" onclick="logout()"> <a href="../index.html">Logout</a></button>
         </div>
         <div class="listener-body-wrapper">
-            <h1>Listener</h1>
+            <h1 id="listener-name"></h1>
+            <button class="change-name">Change Name</button>
+            <script>
+                const element = document.querySelector(".change-name");
+                element.addEventListener("click", function() {
+                    let user;
+                    do {
+                    user = prompt("Please enter your new name:");
+                    } while (user !== null && user.trim() === "");
+                    if (user !== null) {
+                        document.getElementById("listener-name").innerHTML = "Hello " + user + "!";
+                    }
+                });
+            </script>
             <div class="listener-sub-body-wrapper">
                 <div class="listener-preference-body">
-                    <h2>Preferences</h2>
                     <h3>Select your Genre:</h3>
                     <div class="listener-genre">
                         <!-- Alert an error if none selected -->                            
@@ -97,5 +109,6 @@
                 </div>
             </div>
         </div>
+        <script src="../scripts/login.js"></script>
     </body>
 </html>
