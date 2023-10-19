@@ -16,7 +16,7 @@
             <button type="button" onclick="logout()"> <a href="../index.html">Logout</a></button>
         </div>
         <div class="listener-body-wrapper">
-            <h1 id="listener-name"></h1>
+            <h1 id="listener-name" style="margin: 20px;"></h1>
             <button class="change-name">Change Name</button>
             <script>
                 const element = document.querySelector(".change-name");
@@ -32,7 +32,18 @@
             </script>
             <div class="listener-sub-body-wrapper">
                 <div class="listener-preference-body">
-                    <h3>Select your Genre:</h3>
+                    <h3>Search a Song:</h3>
+                    <div class="listener-search">
+                        <form name="song-form" onsubmit="return validateForm()">
+                            <label>Song:</label>
+                            <input id="search-song" name="search-song" type="text" class="search-input"> <!-- Add the class here -->
+                            <input id="search" type="submit" value="Search" onclick="return searchSong()">
+                        </form>
+                    </div>   
+                    <div class="error-message-container"> <!-- Add a container for error message -->
+                        <p id="error-message" class="error-message"></p>
+                    </div>                 
+                    <h3 style="margin-top: 0;">Select your Genre:</h3>
                     <div class="listener-genre">
                         <!-- Alert an error if none selected -->                            
                         <button type="button">Electronic</button>
@@ -44,6 +55,7 @@
                     <div class="listener-dj">
                         <select id="DJ" name="DJ">
                             <!-- Alert an error if none selected -->
+                            <option value="AllDJ">All DJ</option>
                             <option value="DJ 1">DJ 1</option>
                             <option value="DJ 2">DJ 2</option>
                             <option value="DJ 3">DJ 3</option>
@@ -110,5 +122,25 @@
             </div>
         </div>
         <script src="../scripts/login.js"></script>
+        <script>
+            function validateForm() {
+            const inputField = document.getElementById("search-song");
+            const errorMessage = document.getElementById("error-message");
+
+            if (inputField.value.trim() === "") {
+                errorMessage.textContent = "Please enter a song name."; // Display the error message
+                errorMessage.style.color = "red"; // Customize the error message style
+                return false; // Prevent form submission
+            }
+
+            // Clear the error message if the input is not empty
+            errorMessage.textContent = "";
+            return true; // Allow form submission
+        }
+
+        function searchSong() {
+            console.log("Searched a song...")
+        }
+        </script>
     </body>
 </html>
