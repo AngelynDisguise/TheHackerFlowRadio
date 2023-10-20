@@ -5,56 +5,56 @@
         <link href="../styles/listener.css" rel="stylesheet" type="text/css">
     </head>
     <body>
+        <!----- App Title ----->
         <div class="common-title">
             <img class="logo" src="../assets/headphones.png" alt="headphones" style="width: 64px; height: 64px; padding-right: 10px;"/>
             <h2>The HackerFlow Radio</h2>
         </div>
+
+        <!----- Navigation ----->
         <div class="navbar">
             <button type="button" onclick="alert('Already logging in!')">Listener</button>                
             <button type="button"> <a href="../pages/producer.html">Producer</a></button>
             <button type="button"> <a href="../pages/DJ.html">DJ</a></button>
             <button type="button" onclick="logout()"> <a href="../index.html">Logout</a></button>
         </div>
+
         <div class="listener-body-wrapper">
+            <!----- Welcome message ----->
             <h1 id="listener-name" style="margin: 20px;"></h1>
             <button class="change-name">Change Name</button>
-            <script>
-                const element = document.querySelector(".change-name");
-                element.addEventListener("click", function() {
-                    let user;
-                    do {
-                    user = prompt("Please enter your new name:");
-                    } while (user !== null && user.trim() === "");
-                    if (user !== null) {
-                        document.getElementById("listener-name").innerHTML = "Hello " + user + "!";
-                    }
-                });
-            </script>
+
+            <!----- Beginning of page body (contains boxes: Preferences and Songs) ----->
             <div class="listener-sub-body-wrapper">
+                <!----- PREFERENCES (LEFT BOX) ----->
                 <div class="listener-preference-body">
+                    <!-- Search -->  
                     <h3>Search a Song:</h3>
                     <div class="listener-search">
+                        <!-- No name by default -->
                         <form name="song-form" onsubmit="return validateForm()">
                             <label>Song:</label>
-                            <input id="search-song" name="search-song" type="text" class="search-input"> <!-- Add the class here -->
+                            <input id="search-song" name="search-song" type="text" class="search-input">
                             <input id="search" type="submit" value="Search" onclick="return searchSong()">
                         </form>
                     </div>   
-                    <div class="error-message-container"> <!-- Add a container for error message -->
+                    <div class="error-message-container">
                         <p id="error-message" class="error-message"></p>
-                    </div>                 
-                    <h3 style="margin-top: 0;">Select your Genre:</h3>
-                    <div class="listener-genre">
-                        <!-- Alert an error if none selected -->                            
-                        <button type="button">Electronic</button>
-                        <button type="button">Lo-Fi</button>
-                        <button type="button">Ambient</button>
-                        <button type="button">Classical</button>
                     </div>
+                    <!-- Genre -->            
+                    <h3 style="margin-top: 0;">Select your Genre:</h3>
+                    <div class="listener-genre">  
+                        <!-- All by default -->                       
+                        <button class="genre-button1" type="button">Electronic</button>
+                        <button class="genre-button2" type="button">Lo-Fi</button>
+                        <button class="genre-button3" type="button">Ambient</button>
+                        <button class="genre-button4" type="button">Classical</button>
+                    </div>
+                    <!-- DJ -->  
                     <h3> Select your DJ:</h3>
                     <div class="listener-dj">
                         <select id="DJ" name="DJ">
-                            <!-- Alert an error if none selected -->
+                            <!-- All by default -->
                             <option value="AllDJ">All DJ</option>
                             <option value="DJ 1">DJ 1</option>
                             <option value="DJ 2">DJ 2</option>
@@ -62,8 +62,11 @@
                         </select>
                     </div>
                 </div>
+
+                <!----- DISPLAY SONGS (RIGHT BOX) ----->
                 <div class="listener-song-body">
                     <div class="listener-song-checkbox">
+                        <!-- Table header -->
                         <ul>
                             <li>
                                 <label class="form-control">
@@ -80,66 +83,80 @@
                         </ul>
                         <h2>Upcoming Songs</h2>
                     </div>
-                    <table>
-                        <tr style="background-color: gray">
-                            <th>DJ</th>
-                            <th>Songs</th>
-                        </tr>
-                        <tr>
-                            <td> 
-                                <img width="25" height="25" src="https://img.icons8.com/ultraviolet/40/test-account.png" alt="test-account" style="padding-right: 10px;"/>
-                                DJ 1
-                            </td>
-                            <td>Song 1</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img width="25" height="25" src="https://img.icons8.com/ultraviolet/40/test-account.png" alt="test-account" style="padding-right: 10px;"/>
-                                DJ 2
-                            </td>
-                            <td>Song 2</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img width="25" height="25" src="https://img.icons8.com/ultraviolet/40/test-account.png" alt="test-account" style="padding-right: 10px;"/>
-                                DJ 3
-                            </td>
-                            <td>Song 3</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img width="25" height="25" src="https://img.icons8.com/ultraviolet/40/test-account.png" alt="test-account" style="padding-right: 10px;"/>
-                                DJ 4
-                            </td>
-                            <td>Song 4</td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>Song 5</td>
-                        </tr>
-                    </table>
+
+                    <!-- Songs Table -->
+                    <div class="table-section">
+                        <table>
+                            <tr style="background-color: gray">
+                                <th style="width:35%;">DJ</th>
+                                <th style="width:85%;">Songs</th>
+                            </tr>
+                            <tr>
+                                <td> 
+                                    <img width="25" height="25" src="https://img.icons8.com/ultraviolet/40/test-account.png" alt="test-account" style="padding-right: 10px;"/>
+                                    DJ 1
+                                </td>
+                                <td>Song 1</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img width="25" height="25" src="https://img.icons8.com/ultraviolet/40/test-account.png" alt="test-account" style="padding-right: 10px;"/>
+                                    DJ 2
+                                </td>
+                                <td>Song 2</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img width="25" height="25" src="https://img.icons8.com/ultraviolet/40/test-account.png" alt="test-account" style="padding-right: 10px;"/>
+                                    DJ 3
+                                </td>
+                                <td>Song 3</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img width="25" height="25" src="https://img.icons8.com/ultraviolet/40/test-account.png" alt="test-account" style="padding-right: 10px;"/>
+                                    DJ 4
+                                </td>
+                                <td>Song 4</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>Song 5</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!----- SCRIPTS ----->
         <script src="../scripts/login.js"></script>
+        <script src="../scripts/listener.js"></script>
         <script>
+            // Change username
+            const element = document.querySelector(".change-name");
+            element.addEventListener("click", function() {
+                let user;
+                do {
+                user = prompt("Please enter your new name:");
+                } while (user !== null && user.trim() === "");
+                if (user !== null) {
+                    document.cookie = "username=" + user;
+                    document.getElementById("listener-name").innerHTML = "Hello " + user + "!";
+                }
+            });
+
+            // Search song form
             function validateForm() {
             const inputField = document.getElementById("search-song");
             const errorMessage = document.getElementById("error-message");
-
             if (inputField.value.trim() === "") {
-                errorMessage.textContent = "Please enter a song name."; // Display the error message
-                errorMessage.style.color = "red"; // Customize the error message style
+                errorMessage.textContent = "Please enter a song name.";
+                errorMessage.style.color = "red"; 
                 return false; // Prevent form submission
             }
-
-            // Clear the error message if the input is not empty
             errorMessage.textContent = "";
             return true; // Allow form submission
-        }
-
-        function searchSong() {
-            console.log("Searched a song...")
         }
         </script>
     </body>
