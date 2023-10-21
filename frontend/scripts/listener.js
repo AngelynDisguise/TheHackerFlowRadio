@@ -19,7 +19,10 @@
         let newUsername;
         do {
             newUsername = prompt("Please enter your new name:");
-        } while (newUsername == null || newUsername.trim() === "");
+            if (newUsername == null) {
+                return;
+            }
+        } while (newUsername.trim() === "");
         document.cookie = "username=" + newUsername + "; SameSite=Lax";
         document.getElementById("listener-name").innerHTML = "Hello " + newUsername + "!";
     });

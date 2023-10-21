@@ -27,12 +27,16 @@ window.onload = function() {
 and are temporarily stored in a httpOnly cookie. This is safe and encypted.
 - User Preferences are saved as an object in local storage and persists until the user logs out. T
 hey are modifiable by the user. */
+// Mock example of authentication without password, using a prompt (no login page yet)
 function login() {
-    let username; // Mock example of authentication without password
+    let username; 
     // let password;
     do {
-        username = prompt("Please enter your username:");
-    } while (username == null || username.trim() === "");
+        username = prompt("Please enter your username:"); 
+        if (username == null) {
+            window.location.href = "../index.html";
+        }
+    } while (username.trim() === "");
     console.log(username + " tried to logged in...");
 
     // Username and password sent to server for verification...
@@ -46,7 +50,7 @@ function login() {
         welcomeListener(username); // Listener login
     } else {
         // Login Fail
-        window.location.href = "../index.html";
+        console.log("Login Failed!") // Login failure handler or redirection to login page to be implemented
     }
 }
 
