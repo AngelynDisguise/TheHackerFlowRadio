@@ -25,15 +25,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 15px;
+    padding: 20px;
 
     flex-grow: 3;
 }
 
 .listener-preference-body {
     /* height: 500px; */
-    display: flex;  /* Add this line to make the buttons inside flex items. */
-    align-items: center; /* Align items vertically in the center. */
+    display: flex;  
+    align-items: center;
+    padding: 50px;
 }
 
 .listener-genre {
@@ -48,25 +49,31 @@
     width: 600px;
 }
 
-.listener-song-body h2 {
-    margin-bottom: 10px;
+/* make table scrollable */
+.table-section {
+    height: 250px;
+    overflow: auto;
+    width: 90%;
+    border: 1px solid #ccc;
+    margin: 20px;
 }
 
-table {
+.table-section table {
     border-collapse: collapse;
-    width: 100%
+    width: 100%;
+    font-size: 15px;
 }
 
 td,
 th {
     border: 1px solid white;
-    padding: 10px 20px;
+    padding: 5px 10px;
 }
 
 .listener-song-checkbox {
     display: flex;
     justify-content: center;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     width: 90%;
 }
 
@@ -92,8 +99,3 @@ th {
     align-items: center;
     padding: 0;
 }
-
-/* .error-message {
-    color: red;
-    margin-left: 10px; 
-} */
