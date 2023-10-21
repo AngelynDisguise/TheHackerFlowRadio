@@ -1,115 +1,108 @@
-// User and their Preferences
-// Preferences are temporary and cleared after reload
-let user = {
-    "username": "",
-    "preferences": {
-        "genre": {
-            "Electronic": false,
-            "LoFi": false,
-            "Ambient": false,
-            "Classical": false
-        },
-        // "DJ": ""
+    // Search song form
+    function validateForm(event) {
+        event.preventDefault();
+        const inputField = document.getElementById("search-song");
+        const errorMessage = document.getElementById("error-message");
+        if (inputField.value.trim() === "") {
+            errorMessage.textContent = "Please enter a song name.";
+            errorMessage.style.color = "red"; 
+            return false; // Prevent form submission
+        }
+        errorMessage.textContent = "";
+        searchSong(inputField.value);
+        return true; // Allow form submission
     }
-}
 
-// Display searched songs
-// function searchSong() {
-//     console.log("Searching a song...");
-    
-//     // Get User
-//     const username = getCookie("username");
-//     console.log(username);
-
-//     if(username) {
-//         // Get Preferred Genres
-//         const selectedGenres = [];
-//         for (const genre in user.preferences.genre) {
-//             if (user.preferences.genre[genre] === true) {
-//             selectedGenres.push(genre);
-//             }
-//         }
-//         console.log("Selected Genres: " + selectedGenres);
-//         // Get Preferred DJ
-//         const selectedDJ = user.preferences.DJ;
-//         console.log("Selected DJ: " + selectedDJ)
-//     } else {
-//         console.log("Username not found in cookies.");
-//     }
-// }
-    
+    // Change username
+    const element = document.querySelector(".change-name");
+    element.addEventListener("click", function() {
+        let newUsername;
+        do {
+            newUsername = prompt("Please enter your new name:");
+        } while (newUsername == null || newUsername.trim() === "");
+        document.cookie = "username=" + newUsername + "; SameSite=Lax";
+        document.getElementById("listener-name").innerHTML = "Hello " + newUsername + "!";
+    });
 
 function selectGenre() {
-    //const buttons = document.querySelectorAll(".genre-button");
     const buttons = document.querySelectorAll("[class^='genre-button']");
-
+    // Event Listener: change preference according to button color and index
     buttons.forEach(function(button, index) {
         button.addEventListener("click", function() {
+            const preferences = JSON.parse(localStorage.getItem("preferences"));
+            //console.log(preferences);
+            // Turn off genre preference, button switches to black
             if (button.style.backgroundColor === "grey") {
                 button.style.backgroundColor = "#1a1a1a";
                 switch(index) {
                     case 0:
-                        user.preferences.genre.Electronic = false;
+                        preferences.genre.Electronic = false;
                         break;
                     case 1: 
-                        user.preferences.genre.LoFi = false;
+                        preferences.genre.LoFi = false;
                         break;
                     case 2:
-                        user.preferences.genre.Ambient = false;
+                        preferences.genre.Ambient = false;
                         break;
                     case 3:
-                        user.preferences.genre.Classical = false;
+                        preferences.genre.Classical = false;
                         break;
                     default:
                         break;
                 }
-                console.log(user.preferences.genre);
-            } else {
+            } else { // Turn on genre preference, button switches to grey
                 button.style.backgroundColor = "grey"
                 //console.log("A genre was selected");
                 switch(index) {
                     case 0:
-                        user.preferences.genre.Electronic = true;
+                        preferences.genre.Electronic = true;
                         break;
                     case 1: 
-                        user.preferences.genre.LoFi = true;
+                        preferences.genre.LoFi = true;
                         break;
                     case 2:
-                        user.preferences.genre.Ambient = true;
+                        preferences.genre.Ambient = true;
                         break;
                     case 3:
-                        user.preferences.genre.Classical = true;
+                        preferences.genre.Classical = true;
                         break;
                     default:
                         break;
                 }
-                console.log(user.preferences.genre);
             }
+            localStorage.setItem("preferences", JSON.stringify(preferences));
+            console.log("Selected Preferences: ", preferences.genre);
         });
     });
 }
 
-// Add DJ property to user
 function selectDJ() {
     const djSelect = document.getElementById("DJ");
+    // Event Listener: change the DJ preference
     djSelect.addEventListener("change", function () {
-        user.preferences.DJ = djSelect.value; // new property
-        console.log("Selected DJ:", user.preferences.DJ);
-        console.log(user);
+        const preferences = JSON.parse(localStorage.getItem("preferences"));
+        preferences.DJ = djSelect.value; // new property
+
+        localStorage.setItem("preferences", JSON.stringify(preferences));
+        console.log("Selected DJ: ", preferences.DJ);
+        console.log(preferences);
     });
 }
 
-function setUser() {
+function getCookie(name) {
     const value = `; ${document.cookie}`;
-    const parts = value.split(`; username=`);
-    if (parts.length === 2) {
-        user.username = parts.pop().split(';').shift();
-        console.log("User set to: " + user.username);
-    }
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-// console.log(user); // empty object
-setUser();
+// Display searched songs
+function searchSong(song) {
+    console.log("Searching a song '" + song + "'...")
+    // Get Preferences
+    // Call server API
+    // Display Table
+}
+
+
 selectGenre();
 selectDJ();
-console.log(user); // initialized object

@@ -32,10 +32,10 @@
                     <h3>Search a Song:</h3>
                     <div class="listener-search">
                         <!-- No name by default -->
-                        <form name="song-form" onsubmit="return validateForm()">
+                        <form name="song-form" onsubmit="return validateForm(event)">
                             <label>Song:</label>
                             <input id="search-song" name="search-song" type="text" class="search-input">
-                            <input id="search" type="submit" value="Search" onclick="return searchSong()">
+                            <input id="search" type="submit" value="Search">
                         </form>
                     </div>   
                     <div class="error-message-container">
@@ -123,6 +123,10 @@
                                 <td>&nbsp;</td>
                                 <td>Song 5</td>
                             </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>Song 6</td>
+                            </tr>
                         </table>
                     </div>
                 </div>
@@ -132,32 +136,5 @@
         <!----- SCRIPTS ----->
         <script src="../scripts/login.js"></script>
         <script src="../scripts/listener.js"></script>
-        <script>
-            // Change username
-            const element = document.querySelector(".change-name");
-            element.addEventListener("click", function() {
-                let user;
-                do {
-                user = prompt("Please enter your new name:");
-                } while (user !== null && user.trim() === "");
-                if (user !== null) {
-                    document.cookie = "username=" + user;
-                    document.getElementById("listener-name").innerHTML = "Hello " + user + "!";
-                }
-            });
-
-            // Search song form
-            function validateForm() {
-            const inputField = document.getElementById("search-song");
-            const errorMessage = document.getElementById("error-message");
-            if (inputField.value.trim() === "") {
-                errorMessage.textContent = "Please enter a song name.";
-                errorMessage.style.color = "red"; 
-                return false; // Prevent form submission
-            }
-            errorMessage.textContent = "";
-            return true; // Allow form submission
-        }
-        </script>
     </body>
 </html>

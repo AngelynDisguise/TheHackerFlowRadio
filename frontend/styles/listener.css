@@ -25,7 +25,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 15px;
+    padding: 20px;
 
     flex-grow: 3;
 }
@@ -34,6 +34,7 @@
     /* height: 500px; */
     display: flex;  
     align-items: center;
+    padding: 50px;
 }
 
 .listener-genre {
@@ -50,10 +51,11 @@
 
 /* make table scrollable */
 .table-section {
-    height: 200px;
+    height: 250px;
     overflow: auto;
     width: 90%;
     border: 1px solid #ccc;
+    margin: 20px;
 }
 
 .table-section table {
