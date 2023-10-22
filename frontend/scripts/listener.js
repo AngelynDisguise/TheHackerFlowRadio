@@ -1,6 +1,6 @@
     // Search song form
     function validateForm(event) {
-        event.preventDefault();
+        event.preventDefault(); // prevent page refresh
         const inputField = document.getElementById("search-song");
         const errorMessage = document.getElementById("error-message");
         if (inputField.value.trim() === "") {
@@ -22,7 +22,7 @@
             if (newUsername == null) {
                 return;
             }
-        } while (newUsername.trim() === "");
+        } while (newUsername && newUsername.trim() === "");
         document.cookie = "username=" + newUsername + "; SameSite=Lax";
         document.getElementById("listener-name").innerHTML = "Hello " + newUsername + "!";
     });

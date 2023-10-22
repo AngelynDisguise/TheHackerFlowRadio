@@ -22,7 +22,7 @@ window.onload = function() {
     }
 }
 
-/* The User:
+/* Login:
 - Authentication information like username and password are stored in JWT (JSON Web Tokens), 
 and are temporarily stored in a httpOnly cookie. This is safe and encypted.
 - User Preferences are saved as an object in local storage and persists until the user logs out. T
@@ -36,12 +36,12 @@ function login() {
         if (username == null) {
             window.location.href = "../index.html";
         }
-    } while (username.trim() === "");
+    } while (username && username.trim() === "");
     console.log(username + " tried to logged in...");
 
     // Username and password sent to server for verification...
 
-    if (username) { // This will work because login() will accept any non-empty string
+    if (username) { // (note: This will work because login() will accept any non-empty string)
         // Login Success
         console.log(username +" logged in successfully");
         document.cookie = "username=" + username + "; SameSite=Lax"; // Save encrypted user session in cookie
@@ -54,6 +54,7 @@ function login() {
     }
 }
 
+/* Logout: clear listener data from cookies and local storage*/
 function logout() {
     console.log("Logging out");
     document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=../pages/listerner.html; SameSite=Lax;";   
@@ -77,6 +78,7 @@ function welcomeListener(username) {
     const userPreferencesJSON = JSON.stringify(userPreferences);
     // Initialize preferences in local storage
     localStorage.setItem("preferences", userPreferencesJSON);
+    console.log(localStorage.getItem("preferences"));
     // Display welcome user
     const text = "Hello " + username + "!";
     document.getElementById("listener-name")
