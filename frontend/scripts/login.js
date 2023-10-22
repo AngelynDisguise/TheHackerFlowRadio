@@ -36,7 +36,7 @@ function login() {
         if (username == null) {
             window.location.href = "../index.html";
         }
-    } while (username && username.trim() === "");
+    } while (username !== null && username.trim() === "");
     console.log(username + " tried to logged in...");
 
     // Username and password sent to server for verification...

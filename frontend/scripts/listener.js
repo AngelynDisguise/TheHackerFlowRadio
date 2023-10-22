@@ -22,7 +22,7 @@
             if (newUsername == null) {
                 return;
             }
-        } while (newUsername && newUsername.trim() === "");
+        } while (newUsername !== null && newUsername.trim() === "");
         document.cookie = "username=" + newUsername + "; SameSite=Lax";
         document.getElementById("listener-name").innerHTML = "Hello " + newUsername + "!";
     });
