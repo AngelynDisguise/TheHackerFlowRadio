@@ -5,36 +5,39 @@
         <link rel="icon" type="image/png" href="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/64/external-headphones-communication-kiranshastry-gradient-kiranshastry.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>The HackerFlow Radio</title>
-        <link href="../common-styles.css" rel="stylesheet" type="text/css">
+        <link href="../group9.css" rel="stylesheet" type="text/css">
         <link href="../styles/dj.css" rel="stylesheet" type="text/css">
     </head>
+
     <body>
         <img class="logo" src="../assets/headphones.png" alt="headphones" style="position: absolute; top: 0; left: 0; width: 64px; height: 64px;"/>
         <div class="home-wrapper">
             <div class="title">
                 <h2>The HackerFlow Radio</h2>
             </div>
+
             <div class="navbar">
                 <button type="button"> <a href="../pages/listener.html">Listener</a></button>
-                <button type="button"> <a href="../pages/producer.html">Producer</a></button>
-                <button type="button"> <a href="../pages/DJ.html">DJ</a></button>
-                <button type="button"> <a href="../common-index.html">Home</a></button>
+                <button type="button"> <a href="../pages/producer/index.html">Producer</a></button>
+                <button type="button" onclick="alert('Already here!')">DJ</button>
+                <button type="button"> <a href="../index.html">Home</a></button>
             </div>
         </div>
 
         <div class="dj-body-wrapper">
-            <div class="dj-title">
-                <h1>DJ</h1>
+            <div class="dj-name">
+                <h1 id="dj-name" style="margin: 20px;"></h1>
+                <button class="change-name" style="margin-bottom: 10px; font-size: 12px;">Change Name</button>
             </div>
             <div class = "dropdown">
-                <label for="Time Slots"></label> 
-                <select name="Time Slots" id="Time Slots"> 
+                <label for="Time-Slots"></label> 
+                <select name="Time-Slots" id="TimeSlots"> 
                     <div class="dropdown-content">
                         <option disabled="disabled" selected="selected" value="choose" selected>Choose a time slot</option>
-                        <option value="12-2">12:00 - 2:00 PM</option> 
+                        <!-- <option value="12-2">12:00 - 2:00 PM</option> 
                         <option value="2-4">2:00 - 4:00 PM</option> 
                         <option value="4-6">4:00 - 6:00 PM</option> 
-                        <option value="6-8">6:00 - 8:00 PM</option> 
+                        <option value="6-8">6:00 - 8:00 PM</option>  -->
                     </div>
                 </select>
             </div>
@@ -72,5 +75,6 @@
                 <button type="button"> <a href="../pages/Search.html">Edit Playlist</a></button>
             </div>
         </div>
+        <script src="../scripts/dj.js"></script>
     </body>
 </html>
