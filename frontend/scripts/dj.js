@@ -48,7 +48,7 @@ fetch('../../../backend/data/timeslots.json')
           }
       } while (newUsername !== null && newUsername.trim() === "");
       document.cookie = "username=" + newUsername + "; SameSite=Lax";
-      document.getElementById("listener-name").innerHTML = "Hello " + newUsername + "!";
+      document.getElementById("dj-name").innerHTML = "DJ " + newUsername;
   });
 
 function login() {

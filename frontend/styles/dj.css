@@ -107,3 +107,12 @@ td:nth-child(1) {
     background-color: #ffffff;
     width: 200px;
 }
+
+.form-control {
+    padding-right: 25px;
+}
+
+.change-name {
+    margin-bottom: 10px;
+    font-size: 12px;
+}
